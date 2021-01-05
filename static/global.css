@@ -4,6 +4,7 @@ body {
 	font-size: 14px;
 	line-height: 1.5;
 	color: #333;
+	background: #A1A0C926;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -14,19 +15,38 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
 	font-size: 2em;
+	margin-bottom: 2rem;
 }
 
-a {
-	color: inherit;
+.button {
+	background-color:#161454;
+	border-radius:28px;
+	border:1px solid #05052E;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:10px 26px;
+	text-decoration:none;
+	max-width: 150px;
+}
+.button:hover {
+	background-color:#343278;
+}
+.button:active {
+	position:relative;
+	top:1px;
 }
 
-code {
-	font-family: menlo, inconsolata, monospace;
-	font-size: calc(1em - 2px);
-	color: #555;
-	background-color: #f0f0f0;
-	padding: 0.2em 0.4em;
-	border-radius: 2px;
+input{
+	padding: 10px;
+	font-size: 1.2em;
+	border-radius: 5px;
+	border: 1px solid #05052E;
+}
+input:invalid {
+    box-shadow: none;
 }
 
 @media (min-width: 400px) {

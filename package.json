@@ -1,6 +1,6 @@
 {
-  "name": "TODO",
-  "description": "TODO",
+  "name": "lamden_tutorial",
+  "description": "The Lamden Smart Contract Tutorial",
   "version": "0.0.1",
   "scripts": {
     "dev": "sapper dev",
