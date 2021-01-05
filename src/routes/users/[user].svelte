@@ -1,7 +1,8 @@
 <!-- frontend/src/routes/users/[user].svelte -->
 <script context="module">
+    let contract_url = "http://167.172.126.5:18080/contracts/con_apd_v2/";
    export async function preload({ params, query }) {
-      const res = await this.fetch(`http://localhost:3737/contracts/apd_v01/State?key=${params.user}`) // http://167.172.126.5:18080/contracts/con_apd_v2
+      const res = await this.fetch(contract_url + `State?key=${params.user}`) // http://167.172.126.5:18080/contracts/con_apd_v2
       const data = await res.json();
       if (data.value === 'undefined') this.error(res.status, data.message);
       if (data.value === null) data.value = 0;
@@ -17,6 +18,8 @@
     export let user;
     export let value;
 
+   let contract_host = "http://167.172.126.5:18080/"
+   let contract_url = "http://167.172.126.5:18080/contracts/con_apd_v2/";
    let receiver = "";
    let amount = 0;
 
@@ -32,7 +35,7 @@
       }
 
    const refreshBalance = async () => {
-      const res = await fetch("http://localhost:3737/contracts/apd_v01/State?key=" + user)
+      const res = await fetch(contract_url + "State?key=" + user)
       let data = await res.json();
       value = data.value;
       }
@@ -54,7 +57,7 @@
          body: JSON.stringify(transaction)
       }
 
-      const res = await fetch(`http://localhost:3737/`, options)
+      const res = await fetch(contract_host, options)
       const data = await res.json();
       if (data.error) {
          alert(data.error);
