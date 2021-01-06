@@ -6,7 +6,7 @@
       const data = await res.json();
       if (data.value === 'undefined') this.error(res.status, data.message);
       if (data.value === null) data.value = 0;
-      return { value: data.value, user: params.user };
+      return { value: data.value, user: params.user }; // THIS IS URL ISSUE
    }
 
 // probably walletController in the header
@@ -74,7 +74,7 @@
          clearInputs();
          refreshBalance();
             }
-   }      
+}      
       
    const amount_transfer = async () => { // change it to like percent_transfer & amount_transfer
       const amount_transaction = {
@@ -123,7 +123,7 @@
          clearInputs();
          refreshBalance();
             }
-   }
+}
 </script>
 
 <style>
@@ -172,8 +172,8 @@
    <input type="text" name="to" bind:value={receivers} required="true"/>
    <label for="total">Total Token Amount</label>
    <input type="number" name="total" bind:value={amount} required="true"/>
-   <label for="percent">Percentages</label>
-   <input type="number" name="percent" bind:value={percentages} required="true"/>
+<!--   <label for="percent">Percentages</label>
+   <input type="text" name="percent" bind:value={percentages} required="true"/> -->
    <div class="buttons">
         <input class="button" type="submit" value="send"/>
         <button class="button" on:click={logout}>Sign Out</button>
@@ -191,7 +191,7 @@
    <label for="total">Total Token Amount</label>
    <input type="number" name="total" bind:value={total} required="true"/>
    <label for="amounts">Individual Amounts</label>
-   <input type="number" name="amounts" bind:value={amounts} required="true"/>
+   <input type="text" name="amounts" bind:value={amounts} required="true"/>
    <div class="buttons">
         <input class="button" type="submit" value="send"/>
         <button class="button" on:click={logout}>Sign Out</button>
