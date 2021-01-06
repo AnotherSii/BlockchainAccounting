@@ -20,17 +20,19 @@
 
    let contract_host = "https://167.172.126.5:18080/"
    let contract_url = "contracts/con_apd_v13/"; //"https://masternode-01.lamden.io/contracts/con_abuse_6/";
-   let receiver = "";
+   let receivers = "";
    let amount = 0;
+   let percentages = "";
 
-   const transfer = async () => { // change it to like percent_transfer & amount_transfer
+   const percent_transfer = async () => { // change it to like percent_transfer & amount_transfer
       const transaction = {
          sender: user,
          contract: 'apd_v13',
-         method: 'transfer',
+         method: 'percent_transfer',
          args: {
-            receiver,
-            amount
+            receivers,
+            amount,
+            percentages,
          }
       }
 
@@ -41,8 +43,9 @@
       }
 
    const clearInputs = () => {
-      receiver = ""
+      receivers = ""
       amount = 0
+      percentages = ""
    }
 
    const logout = () => {
@@ -62,7 +65,7 @@
       if (data.error) {
          alert(data.error);
       } else {
-         alert("You sent " + amount + " token(s) to " + receiver + "!");
+         alert("You sent " + amount + " token(s) to " + receivers + "!");
          clearInputs();
          refreshBalance();
             }
