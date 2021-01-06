@@ -37,6 +37,7 @@
             percentages,
          }
       }
+      }
       
    const amount_transfer = async () => { // change it to like percent_transfer & amount_transfer
       const amount_transaction = {
@@ -49,6 +50,7 @@
             amounts,
          }
       }
+      } //the asyncs might not be syncing
 
    const refreshBalance = async () => {
       const res = await fetch(contract_host + contract_url + "State?key=" + user)
@@ -65,9 +67,7 @@
    }
    
 
-   const logout = () => {
-      goto(`.`);
-   }
+   const logout = () => { goto(`.`); }
 
       const options = {
          method: 'POST',
@@ -77,13 +77,6 @@
          body: JSON.stringify(percent_transaction)
       }
       
-      const options2 = {
-         method: 'POST',
-         headers: {
-            'Content-Type': 'application/json'
-         },
-         body: JSON.stringify(amount_transaction)
-      }
 
       const res = await fetch(contract_host, options)
       
@@ -95,7 +88,7 @@
          clearInputs();
          refreshBalance();
             }
-   }
+   
 </script>
 
 <style>
