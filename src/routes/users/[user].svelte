@@ -2,7 +2,7 @@
 <script context="module">
     let contract_url = "https://testnet-master-1.lamden.io/contracts/con_apd_v13/"; //"https://masternode-01.lamden.io/contracts/con_abuse_6/"; //
    export async function preload({ params, query }) {
-      const res = await this.fetch(contract_url + `State?key=${params.user}`) // http://167.172.126.5:18080/contracts/con_apd_v2
+      const res = await this.fetch(contract_url + `/State?key=${params.user}`) // http://167.172.126.5:18080/contracts/con_apd_v2
       const data = await res.json();
       if (data.value === 'undefined') this.error(res.status, data.message);
       if (data.value === null) data.value = 0;
