@@ -25,7 +25,7 @@
    let percentages = "";
 
    const percent_transfer = async () => { // change it to like percent_transfer & amount_transfer
-      const transaction = {
+      const percent_transaction = {
          sender: user,
          contract: 'apd_v13',
          method: 'percent_transfer',
@@ -57,7 +57,7 @@
          headers: {
             'Content-Type': 'application/json'
          },
-         body: JSON.stringify(transaction)
+         body: JSON.stringify(percent_transaction)
       }
 
       const res = await fetch(contract_host, options)
