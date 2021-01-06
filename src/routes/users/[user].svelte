@@ -60,13 +60,10 @@
       receivers = ""
       amount = 0
       percentages = ""
-   }
-   
-   const clearInputs2 = () => {
-      receivers = ""
       total = 0
       amounts = ""
    }
+   
 
    const logout = () => {
       goto(`.`);
@@ -89,7 +86,6 @@
       }
 
       const res = await fetch(contract_host, options)
-      const res = await fetch(contract_host, options2)
       
       const data = await res.json();
       if (data.error) {
@@ -97,7 +93,6 @@
       } else {
          alert("You sent " + amount + " token(s) to " + receivers + "!");
          clearInputs();
-         clearInputs2();
          refreshBalance();
             }
    }
