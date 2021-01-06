@@ -1,6 +1,6 @@
 <!-- frontend/src/routes/users/[user].svelte -->
 <script context="module">
-    let contract_url = "https://167.172.126.5:18080/contracts/con_apd_v13/"; //"https://masternode-01.lamden.io/contracts/con_abuse_6/"; //
+    let contract_url = "http://167.172.126.5:18080/contracts/con_apd_v13/"; //"https://masternode-01.lamden.io/contracts/con_abuse_6/"; //
    export async function preload({ params, query }) {
       const res = await this.fetch(contract_url + `State?key=${params.user}`) // http://167.172.126.5:18080/contracts/con_apd_v2
       const data = await res.json();
@@ -18,8 +18,8 @@
     export let user;
     export let value;
 
-   let contract_host = "https://167.172.126.5:18080/"
-   let contract_url = "https://167.172.126.5:18080/contracts/con_apd_v13/"; //"https://masternode-01.lamden.io/contracts/con_abuse_6/";
+   let contract_host = "http://167.172.126.5:18080/"
+   let contract_url = "http://167.172.126.5:18080/contracts/con_apd_v13/"; //"https://masternode-01.lamden.io/contracts/con_abuse_6/";
    let receiver = "";
    let amount = 0;
 
@@ -107,11 +107,10 @@
 <h1>{"Hello " + user + "!"}</h1>
 <h2>Token Balance: {value}</h2>
 
-<!-- make it so they can do a list -->
 <form on:submit|preventDefault={transfer}>
-   <h3>Make a transfer</h3>
-    
-    <!-- probably a {% for x in r_list %} -->
+   <h3>Distribute Funds based on percentages (use whole numbers)</h3>
+   
+    <!-- make it so a person can add a certain number of investors -->
    <label for="to">To</label>
    <input type="text" name="to" bind:value={receiver} required="true"/>
    <label for="amount">Token Amount</label>
