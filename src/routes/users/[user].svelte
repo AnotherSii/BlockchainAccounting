@@ -73,16 +73,7 @@
          refreshBalance();
             }
    }
-</script>
 
-<script>
-    import { goto } from '@sapper/app';
-
-    export let user;
-    export let value;
-
-    let contract_host = "https://testnet-master-1.lamden.io/"
-    let contract_url = "contracts/con_apd_v13/"; //"https://masternode-01.lamden.io/contracts/con_abuse_6/";
     let receivers = "";
     let total = 0;
     let amounts = 0;
