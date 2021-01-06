@@ -23,6 +23,8 @@
     let receivers = "";
     let amount = 0;
     let percentages = "";
+    let total = 0;
+    let amounts = 0;
       
       
    const percent_transfer = async () => { // change it to like percent_transfer & amount_transfer
@@ -72,12 +74,7 @@
          clearInputs();
          refreshBalance();
             }
-   }
-
-    let receivers = "";
-    let total = 0;
-    let amounts = 0;
-      
+   }      
       
    const amount_transfer = async () => { // change it to like percent_transfer & amount_transfer
       const amount_transaction = {
