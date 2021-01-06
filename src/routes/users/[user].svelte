@@ -1,6 +1,6 @@
 <!-- frontend/src/routes/users/[user].svelte -->
 <script context="module">
-    let contract_url = "https://167.172.126.5:18080/contracts/con_apd_v13/"; //"https://masternode-01.lamden.io/contracts/con_abuse_6/"; //
+    let contract_url = "http://167.172.126.5:18080/contracts/con_apd_v13/"; //"https://masternode-01.lamden.io/contracts/con_abuse_6/"; //
    export async function preload({ params, query }) {
       const res = await this.fetch(contract_url + `State?key=${params.user}`) // http://167.172.126.5:18080/contracts/con_apd_v2
       const data = await res.json();
@@ -18,7 +18,7 @@
     export let user;
     export let value;
 
-   let contract_host = "https://167.172.126.5:18080/"
+   let contract_host = "http://167.172.126.5:18080/"
    let contract_url = "contracts/con_apd_v13/"; //"https://masternode-01.lamden.io/contracts/con_abuse_6/";
    let receivers = "";
    let amount = 0;
