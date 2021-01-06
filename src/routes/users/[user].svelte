@@ -23,10 +23,9 @@
     let receivers = "";
     let amount = 0;
     let percentages = "";
-    let total = 0;
-    let amounts = 0;
-
-    const percent_transfer = async () => { // change it to like percent_transfer & amount_transfer
+      
+      
+   const percent_transfer = async () => { // change it to like percent_transfer & amount_transfer
       const percent_transaction = {
          sender: user,
          contract: 'apd_v13',
@@ -37,20 +36,7 @@
             percentages,
          }
       }
-      }
-      
-   const amount_transfer = async () => { // change it to like percent_transfer & amount_transfer
-      const amount_transaction = {
-         sender: user,
-         contract: 'apd_v13',
-         method: 'amount_transfer',
-         args: {
-            receivers,
-            total,
-            amounts,
-         }
-      }
-      } //the asyncs might not be syncing
+
 
    const refreshBalance = async () => {
       const res = await fetch(contract_host + contract_url + "State?key=" + user)
@@ -62,8 +48,6 @@
       receivers = ""
       amount = 0
       percentages = ""
-      total = 0
-      amounts = ""
    }
    
 
@@ -88,7 +72,70 @@
          clearInputs();
          refreshBalance();
             }
+   }
+</script>
+
+<script>
+    import { goto } from '@sapper/app';
+
+    export let user;
+    export let value;
+
+    let contract_host = "https://testnet-master-1.lamden.io/"
+    let contract_url = "contracts/con_apd_v13/"; //"https://masternode-01.lamden.io/contracts/con_abuse_6/";
+    let receivers = "";
+    let total = 0;
+    let amounts = 0;
+      
+      
+   const amount_transfer = async () => { // change it to like percent_transfer & amount_transfer
+      const amount_transaction = {
+         sender: user,
+         contract: 'apd_v13',
+         method: 'amount_transfer',
+         args: {
+            receivers,
+            total,
+            amounts,
+         }
+      }
+
+
+   const refreshBalance = async () => {
+      const res = await fetch(contract_host + contract_url + "State?key=" + user)
+      let data = await res.json();
+      value = data.value;
+      }
+
+   const clearInputs = () => {
+      receivers = ""
+      total = 0
+      amounts = ""
+   }
    
+
+   const logout = () => { goto(`.`); }
+
+      const options = {
+         method: 'POST',
+         headers: {
+            'Content-Type': 'application/json'
+         },
+         body: JSON.stringify(amount_transaction)
+      }
+      
+
+      const res = await fetch(contract_host, options)
+      
+      const data = await res.json();
+      if (data.error) {
+         alert(data.error);
+      } else {
+         alert("You sent " + amount + " token(s) to " + receivers + "!");
+         clearInputs();
+         refreshBalance();
+            }
+   }
 </script>
 
 <style>
