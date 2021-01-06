@@ -18,13 +18,13 @@
     export let user;
     export let value;
 
-   let contract_host = "http://167.172.126.5:18080/"
-   let contract_url = "contracts/con_apd_v13/"; //"https://masternode-01.lamden.io/contracts/con_abuse_6/";
-   let receivers = "";
-   let amount = 0;
-   let percentages = "";
+    let contract_host = "http://167.172.126.5:18080/"
+    let contract_url = "contracts/con_apd_v13/"; //"https://masternode-01.lamden.io/contracts/con_abuse_6/";
+    let receivers = "";
+    let amount = 0;
+    let percentages = "";
 
-   const percent_transfer = async () => { // change it to like percent_transfer & amount_transfer
+    const percent_transfer = async () => { // change it to like percent_transfer & amount_transfer
       const percent_transaction = {
          sender: user,
          contract: 'apd_v13',
@@ -33,6 +33,18 @@
             receivers,
             amount,
             percentages,
+         }
+      }
+      
+   const amount_transfer = async () => { // change it to like percent_transfer & amount_transfer
+      const amount_transaction = {
+         sender: user,
+         contract: 'apd_v13',
+         method: 'amount_transfer',
+         args: {
+            receivers,
+            total,
+            amounts,
          }
       }
 
@@ -47,6 +59,12 @@
       amount = 0
       percentages = ""
    }
+   
+   const clearInputs2 = () => {
+      receivers = ""
+      total = 0
+      amounts = ""
+   }
 
    const logout = () => {
       goto(`.`);
@@ -59,14 +77,25 @@
          },
          body: JSON.stringify(percent_transaction)
       }
+      
+      const options2 = {
+         method: 'POST',
+         headers: {
+            'Content-Type': 'application/json'
+         },
+         body: JSON.stringify(amount_transaction)
+      }
 
       const res = await fetch(contract_host, options)
+      const res = await fetch(contract_host, options2)
+      
       const data = await res.json();
       if (data.error) {
          alert(data.error);
       } else {
          alert("You sent " + amount + " token(s) to " + receivers + "!");
          clearInputs();
+         clearInputs2();
          refreshBalance();
             }
    }
@@ -116,10 +145,28 @@
     <!-- make it so a person can add a certain number of investors -->
    <label for="to">Receipients</label>
    <input type="text" name="to" bind:value={receivers} required="true"/>
-   <label for="amount">Total Token Amount</label>
-   <input type="number" name="amount" bind:value={amount} required="true"/>
-   <label for="amount">Percentages</label>
-   <input type="number" name="amount" bind:value={percentages} required="true"/>
+   <label for="total">Total Token Amount</label>
+   <input type="number" name="total" bind:value={amount} required="true"/>
+   <label for="percent">Percentages</label>
+   <input type="number" name="percent" bind:value={percentages} required="true"/>
+   <div class="buttons">
+        <input class="button" type="submit" value="send"/>
+        <button class="button" on:click={logout}>Sign Out</button>
+   </div>
+</form>
+
+
+
+<form on:submit|preventDefault={amount_transfer}>
+   <h3>Distribute Funds based on actual amounts (use whole numbers)</h3>
+   
+    <!-- make it so a person can add a certain number of investors -->
+   <label for="to">Receipients</label>
+   <input type="text" name="to" bind:value={receivers} required="true"/>
+   <label for="total">Total Token Amount</label>
+   <input type="number" name="total" bind:value={total} required="true"/>
+   <label for="amounts">Individual Amounts</label>
+   <input type="number" name="amounts" bind:value={amounts} required="true"/>
    <div class="buttons">
         <input class="button" type="submit" value="send"/>
         <button class="button" on:click={logout}>Sign Out</button>
