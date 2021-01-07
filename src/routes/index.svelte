@@ -24,7 +24,3 @@
    <input class="button" type="submit" value="Sign In" />
 </form>
 
-<footer>
-    <h3><i>Powered by Lamden</i></h3>
-   <a href="https://lamden.io"> <img alt='Powered by Lamden' src='lamden_original.png'> </a>
-</footer>

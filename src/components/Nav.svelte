@@ -22,3 +22,10 @@
         <p>ACCOUNTING</p>
        </div>
 </nav>
+
+
+<footer>
+ <br><br><br>
+    <h3 style="font-size:10px;"><i>Powered by Lamden</i></h3>
+   <a href="https://lamden.io"> <img alt='Powered by Lamden' src='lamden_original.png'> </a>
+</footer>
