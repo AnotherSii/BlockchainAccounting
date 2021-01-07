@@ -3,6 +3,11 @@
    // import { goto } from '@sapper/app';
     //let user = "";
     // const login = () => { goto('/users/' + user); }
+      import { onMount } from 'svelte';
+
+  
+    document.createElement(...);
+                           
     const detail = JSON.stringify({
         appName: 'Blockchain Accounting',
         version: '1.0.0',
@@ -11,7 +16,9 @@
         networkType: 'testnet', // other option is 'mainnet'
     });
     
-    const document.dispatchEvent(new CustomEvent('lamdenWalletConnect', {detail}));
+    onMount(() => {
+    document.dispatchEvent(new CustomEvent('lamdenWalletConnect', {detail}));
+    }
 
 
     
