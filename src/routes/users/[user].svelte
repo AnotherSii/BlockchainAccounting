@@ -6,9 +6,10 @@
        // const res = await this.fetch(contract_url + `/State?key=${params.user}`) 
       // no need to get the url... should just refresh the page, and with a notification
       const data = await res.json();
+      alert(data.value);
       if (data.value === 'undefined') this.error(res.status, data.message);
       if (data.value === null) data.value = 0;
-      alert(data.value);
+      
       return { value: data.value, user: params.user }; // THIS IS URL ISSUE = don't need a get
    }
 
@@ -134,7 +135,7 @@
    .shadowbox { padding: 0.5rem 20px; }
    form{
       padding: 5px;
-      color: #461BC2;
+      color: #001eb0;
       display:flex;
       flex-direction: column;
       border: none;
