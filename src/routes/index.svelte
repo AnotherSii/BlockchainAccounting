@@ -39,7 +39,7 @@
 <form onsubmit="lamdenConnect()">
   <!-- <h2>Sign in with your Wallet Address below.</h2> -->
   <!-- <input type="text" bind:value={user} placeholder="Lamden Wallet Address" required="true"/> -->
-   <input class="button" value="SIGN IN" />
+   <input class="button" type="submit" value="CONNECT YOUR WALLET" />
 </form>
 
 
