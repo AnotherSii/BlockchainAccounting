@@ -18,7 +18,7 @@
     SignIn.addEventListener('click', function lamdenConnect() {
         document.dispatchEvent(new CustomEvent('lamdenWalletConnect', {detail} ));
        // goto('/users/' + user);
-        }; );
+        } );
     
    // $('signIn').on('submit', lamdenConnect);
     //const login = lamdenConnect() => { goto('/users/' + user); }
