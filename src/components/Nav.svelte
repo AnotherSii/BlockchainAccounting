@@ -12,5 +12,5 @@
 </style>
 
 <nav>
-   <img alt='Token' src='purple_circle.png'>
+   <img alt='Token' src='purple_circle.png' style="width:5%; height:5%;">
 </nav>
