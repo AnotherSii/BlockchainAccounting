@@ -15,7 +15,7 @@
     
     onMount(() => {
     document.dispatchEvent(new CustomEvent('lamdenWalletConnect', {detail}));
-    }); }
+    }); 
 
 
     
