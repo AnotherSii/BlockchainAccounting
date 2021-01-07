@@ -10,13 +10,14 @@
         contractName: 'con_apd_v15',
         networkType: 'testnet', // other option is 'mainnet'
     });
-    
+</script>
+<script>
     function lamdenConnect() {
         document.dispatchEvent(new CustomEvent('lamdenWalletConnect', {detail} ));
        // goto('/users/' + user);
         };
     
-    $('signIn').on('submit', lamdenConnect);
+   // $('signIn').on('submit', lamdenConnect);
     //const login = lamdenConnect() => { goto('/users/' + user); }
 </script>
 
@@ -36,10 +37,10 @@
 
 <br><br>
 <!-- <form on:submit|preventDefault={login}> -->
-<form name="signIn">
+<form onsubmit="lamdenConnect()">
   <!-- <h2>Sign in with your Wallet Address below.</h2> -->
   <!-- <input type="text" bind:value={user} placeholder="Lamden Wallet Address" required="true"/> -->
-   <input class="button" type="submit" value="SIGN IN" />
+   <input class="button" value="SIGN IN" />
 </form>
 
 
