@@ -1,7 +1,7 @@
 <!-- frontend/src/routes/index.svelte -->
 <script> //  type="text/javascript"
-    import { goto } from '@sapper/app';
-    let user = "";
+   // import { goto } from '@sapper/app';
+    //let user = "";
     // const login = () => { goto('/users/' + user); }
     const detail = JSON.stringify({
         appName: 'Blockchain Accounting',
@@ -11,7 +11,7 @@
         networkType: 'testnet', // other option is 'mainnet'
     });
     
-    window.dispatchEvent(new CustomEvent('lamdenWalletConnect', { detail } ));
+    document.dispatchEvent(new CustomEvent('lamdenWalletConnect', {detail}));
 
 
     
