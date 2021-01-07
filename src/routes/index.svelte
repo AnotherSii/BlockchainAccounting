@@ -1,5 +1,5 @@
 <!-- frontend/src/routes/index.svelte -->
-<script type="text/javascript">
+<script> <!--  type="text/javascript" -->
     import { goto } from '@sapper/app';
     let user = "";
     // const login = () => { goto('/users/' + user); }
