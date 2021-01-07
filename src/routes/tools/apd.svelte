@@ -186,7 +186,7 @@ lwc.sendTransaction(transaction, handleResults) // callback is optional - need l
    
     <!-- make it so a person can add a certain number of investors -->
    <label for="to">Receipients</label>
-   <textarea name="to" bind:value={receivers} required="true", placeholder="(address, integer)">
+   <textarea name="to" required="true", placeholder="(address, integer)">
     </textarea>
 <!--   <input type="text" name="to" bind:value={receivers} required="true"/> -->
    <label for="total">Total Amount</label>
