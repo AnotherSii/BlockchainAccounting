@@ -35,11 +35,15 @@
 
 <br><br>
 <!-- <form on:submit|preventDefault={login}> -->
-<form onsubmit="LCW">
+<form name="signIn">
   <!-- <h2>Sign in with your Wallet Address below.</h2> -->
   <!-- <input type="text" bind:value={user} placeholder="Lamden Wallet Address" required="true"/> -->
    <input class="button" type="submit" value="SIGN IN" />
 </form>
+
+<script>
+    $('signIn').on('submit', LCW);
+</script>
 
 <footer>
  <br><br><br>
