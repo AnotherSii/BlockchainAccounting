@@ -5,9 +5,6 @@
     // const login = () => { goto('/users/' + user); }
       import { onMount } from 'svelte';
 
-  
-    document.createElement(...);
-                           
     const detail = JSON.stringify({
         appName: 'Blockchain Accounting',
         version: '1.0.0',
