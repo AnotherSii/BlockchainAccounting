@@ -13,29 +13,23 @@
         networkType: 'testnet', // other option is 'mainnet'
     });
     
-    onMount(() => {
+    var LC = function lamdenConnect() { onMount(() => {
     document.dispatchEvent(new CustomEvent('lamdenWalletConnect', {detail}));
-    });
+    }); }
 
 
     
    // $('signIn').on('submit', lamdenConnect);
     //const login = lamdenConnect() => { goto('/users/' + user); }
-</script>
 
-<!--
-<script type="text/javascript">
     
-    var LC = function lamdenConnect() {
-        document.dispatchEvent(new CustomEvent('lamdenWalletConnect', { detail } ));
        // goto('/users/' + user);
-        }
     
     var SignIn = document.getElementById('signin_button');
     
     SignIn.addEventListener('click', LC, false );
 </script>
--->
+
 
 <style>
    *{
