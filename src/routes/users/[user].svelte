@@ -2,7 +2,7 @@
 <script context="module">
     let contract_url = "https://testnet-master-1.lamden.io/contracts/con_apd_v13/"; //"https://masternode-01.lamden.io/contracts/con_abuse_6/"; //
    export async function preload({ params, query }) {
-      const res = await this.fetch(contract_url + `${params.user}`)
+      const res = await this.fetch(contract_url + `State?${params.user}`)
        // const res = await this.fetch(contract_url + `/State?key=${params.user}`) 
       // no need to get the url... should just refresh the page, and with a notification
       const data = await res.json();

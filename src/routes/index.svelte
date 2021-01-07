@@ -2,7 +2,21 @@
 <script>
     import { goto } from '@sapper/app';
     let user = "";
-    const login = () => { goto('/users/' + user); }
+    // const login = () => { goto('/users/' + user); }
+    const detail = JSON.stringify({
+        appName: 'Blockchain Accounting',
+        version: '1.0.0',
+        logo: 'https://iili.io/K40fKF.png',
+        contractName: 'con_apd_v15',
+        networkType: 'testnet', // other option is 'mainnet'
+        
+    })
+    
+    function lamdenConnect() {
+        document.dispatchEvent(new CustomEvent('lamdenWalletConnect', {detail} ));
+        }
+    
+    const login = lamdenConnect() => { goto('/users/' + user); }
 </script>
 
 <style>
@@ -21,14 +35,14 @@
 
 <br><br>
 <form on:submit|preventDefault={login}>
-   <h2>Sign in to check your token balance.</h2>
-   <input type="text" bind:value={user} required="true"/>
+  <!-- <h2>Sign in with your Wallet Address below.</h2> -->
+   <input type="text" bind:value={user} placeholder="Lamden Wallet Address" required="true"/>
    <input class="button" type="submit" value="SIGN IN" />
 </form>
 
 <footer>
  <br><br><br>
-   <a href="https://lamden.io"> <img alt='Powered by Lamden' src='lamden-tau-logo.png' style="width:85%; height:85%;"> </a>
+   <a href="https://lamden.io"> <img alt='Powered by Lamden' src='lamden-tau-logo.png' style="width:35%; height:35%;"> </a>
     <h3><i>Powered by Lamden</i></h3>
     <br><br><br>
 </footer>
