@@ -13,9 +13,9 @@
         networkType: 'testnet', // other option is 'mainnet'
     });
     
-    onMount() => {
+    onMount(() => {
     document.dispatchEvent(new CustomEvent('lamdenWalletConnect', {detail}));
-    };
+    });
 
 
     
