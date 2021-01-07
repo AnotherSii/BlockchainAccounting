@@ -17,15 +17,7 @@
     //const login = lamdenConnect() => { goto('/users/' + user); }
 </script>
 
-<style>
-   *{
-      text-align: center;
-   }
-</style>
-
-<svelte:head>
-   <title>Blockchain Accounting</title>
-    <script type="text/javascript">
+<script type="text/javascript">
     
     var LC = function lamdenConnect() {
         document.dispatchEvent(new CustomEvent('lamdenWalletConnect', { detail } ));
@@ -35,7 +27,17 @@
     var SignIn = document.getElementById('signin_button');
     
     SignIn.addEventListener('click', LC, false );
-    </script>
+</script>
+
+<style>
+   *{
+      text-align: center;
+   }
+</style>
+
+<svelte:head>
+   <title>Blockchain Accounting</title>
+
 </svelte:head>
 
 <h1>Blockchain Accounting</h1>
