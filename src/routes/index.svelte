@@ -14,9 +14,10 @@
     
     function lamdenConnect() {
         document.dispatchEvent(new CustomEvent('lamdenWalletConnect', {detail} ));
+        goto('/users/' + user);
         }
     
-    const login = lamdenConnect() => { goto('/users/' + user); }
+    //const login = lamdenConnect() => { goto('/users/' + user); }
 </script>
 
 <style>
@@ -34,9 +35,10 @@
 <p>Welcome to an ever-growing suite of tools designed to help you with accounting and other financial activities utilizing blockchain technology.</p>
 
 <br><br>
-<form on:submit|preventDefault={login}>
+<!-- <form on:submit|preventDefault={login}> -->
+<form onsubmit="lamdenConnect()">
   <!-- <h2>Sign in with your Wallet Address below.</h2> -->
-   <input type="text" bind:value={user} placeholder="Lamden Wallet Address" required="true"/>
+  <!-- <input type="text" bind:value={user} placeholder="Lamden Wallet Address" required="true"/> -->
    <input class="button" type="submit" value="SIGN IN" />
 </form>
 
