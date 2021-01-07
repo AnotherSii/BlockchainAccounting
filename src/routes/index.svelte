@@ -11,14 +11,14 @@
         networkType: 'testnet', // other option is 'mainnet'
     });
 
-
+    var LC = function lamdenConnect() {
+        document.dispatchEvent(new CustomEvent('lamdenWalletConnect', { detail } ));
+       // goto('/users/' + user);
+        }
     
     var SignIn = document.getElementById('signin_button');
     
-    SignIn.addEventListener('click', lamdenConnect() {
-        document.dispatchEvent(new CustomEvent('lamdenWalletConnect', { detail } ));
-       // goto('/users/' + user);
-        }, false );
+    SignIn.addEventListener('click', LC, false );
     
    // $('signIn').on('submit', lamdenConnect);
     //const login = lamdenConnect() => { goto('/users/' + user); }
