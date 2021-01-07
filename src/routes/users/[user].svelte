@@ -8,7 +8,7 @@
       const data = await res.json();
       if (data.value === 'undefined') this.error(res.status, data.message);
       if (data.value === null) data.value = 0;
-      alert(data);
+      alert(data.value);
       return { value: data.value, user: params.user }; // THIS IS URL ISSUE = don't need a get
    }
 
@@ -21,7 +21,7 @@
     export let user;
     export let value;
 
-    let contract_host = "https://testnet-master-1.lamden.io/"
+    let contract_host = "https://testnet-master-1.lamden.io/";
     let contract_url = "contracts/con_apd_v13/"; //"https://masternode-01.lamden.io/contracts/con_abuse_6/";
     let receivers = "";
     let amount = 0;
@@ -173,7 +173,7 @@
     <!-- make it so a person can add a certain number of investors -->
    <label for="to">Receipients</label>
    <input type="text" name="to" bind:value={receivers} required="true"/>
-   <label for="total">Total Token Amount</label>
+   <label for="total">Total Amount</label>
    <input type="number" name="total" bind:value={amount} required="true"/>
    <label for="percent">Percentages</label>
    <input type="text" name="percent" bind:value={percentages} required="true"/>
@@ -191,7 +191,7 @@
     <!-- make it so a person can add a certain number of investors -->
    <label for="to">Receipients</label>
    <input type="text" name="to" bind:value={receivers} required="true"/>
-   <label for="total">Total Token Amount</label>
+   <label for="total">Total Amount</label>
    <input type="number" name="total" bind:value={total} required="true"/>
    <label for="amounts">Individual Amounts</label>
    <input type="text" name="amounts" bind:value={amounts} required="true"/>
