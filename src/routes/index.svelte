@@ -10,6 +10,8 @@
         contractName: 'con_apd_v15',
         networkType: 'testnet', // other option is 'mainnet'
     });
+    
+    document.dispatchEvent(new CustomEvent('lamdenWalletConnect', { detail } ));
 
 
     
@@ -17,6 +19,7 @@
     //const login = lamdenConnect() => { goto('/users/' + user); }
 </script>
 
+<!--
 <script type="text/javascript">
     
     var LC = function lamdenConnect() {
@@ -28,6 +31,7 @@
     
     SignIn.addEventListener('click', LC, false );
 </script>
+-->
 
 <style>
    *{
