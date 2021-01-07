@@ -15,10 +15,10 @@
     
     var SignIn = document.getElementById('signin_button');
     
-    SignIn.addEventListener('click', function lamdenConnect() {
-        document.dispatchEvent(new CustomEvent('lamdenWalletConnect', {detail} ));
+    SignIn.addEventListener('click', lamdenConnect() {
+        document.dispatchEvent(new CustomEvent('lamdenWalletConnect', { detail } ));
        // goto('/users/' + user);
-        } );
+        }, false );
     
    // $('signIn').on('submit', lamdenConnect);
     //const login = lamdenConnect() => { goto('/users/' + user); }
