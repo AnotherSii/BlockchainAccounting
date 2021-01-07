@@ -25,9 +25,6 @@
     
        //var goto('/users/' + user);
     
-    var SignIn = document.getElementById('signin_button');
-    
-    SignIn.addEventListener('click', LC, false );
 </script>
 
 
@@ -58,7 +55,7 @@
 </form>
 -->
 
-<button class="button" id="apd" href="/users">Payment Distributor</button>
+<button class="button" id="apd" href="/users/">Payment Distributor</button>
 
 
 <footer>
