@@ -15,8 +15,6 @@
    <title>Blockchain Accounting</title>
 </svelte:head>
 
-<h1>Blockchain Accounting</h1>
-<h3><i>Powered by <a href="https://lamden.io">Lamden</a></i></h3>
 
 <p>Welcome to an ever-growing suite of tools designed to help you with accounting and other financial activities utilizing blockchain technology.</p>
 
@@ -25,3 +23,8 @@
    <input type="text" bind:value={user} required="true"/>
    <input class="button" type="submit" value="Sign In" />
 </form>
+
+<footer>
+<h3><i>Powered by Lamden</h3>
+   <a href="https://lamden.io"> <img alt='Token' src='lamden_original.png' style="width:15%; height:15%;"> </a>
+</footer>
