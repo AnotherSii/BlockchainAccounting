@@ -17,5 +17,8 @@
 
 <nav>
    <img alt='Token' src='purple_circle.png' style="width:5%; height:5%;">
-    <div style="color:#4f00e0"><i>BLOCKCHAIN ACCOUNTING</i></div>
+    <div style="color:#4f00e0">
+        <p>BLOCKCHAIN</p> 
+        <p>ACCOUNTING</p>
+       </div>
 </nav>

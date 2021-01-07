@@ -25,6 +25,6 @@
 </form>
 
 <footer>
-<h3><i>Powered by Lamden</h3>
-   <a href="https://lamden.io"> <img alt='Token' src='lamden_original.png' style="width:15%; height:15%;"> </a>
+    <h3><i>Powered by Lamden</i></h3>
+   <a href="https://lamden.io"> <img alt='Powered by Lamden' src='lamden_original.png'> </a>
 </footer>
