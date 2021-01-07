@@ -1,6 +1,6 @@
 <!-- frontend/src/routes/users/[user].svelte -->
 <script context="module">
-    let contract_url = "https://testnet-master-1.lamden.io/contracts/con_apd_v13/"; //"https://masternode-01.lamden.io/contracts/con_abuse_6/"; //
+    let contract_url = "https://testnet-master-1.lamden.io/contracts/con_apd_v13/";
    export async function preload({ params, query }) {
       const res = await this.fetch(contract_url + `State?${params.user}`)
        // const res = await this.fetch(contract_url + `/State?key=${params.user}`) 

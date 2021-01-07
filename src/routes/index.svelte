@@ -55,7 +55,7 @@
 </form>
 -->
 
-<button class="button" id="apd" href="/users/">Payment Distributor</button>
+<button class="button" id="apd" href="/tools/apd">Payment Distributor</button>
 
 
 <footer>
