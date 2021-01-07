@@ -11,7 +11,7 @@
         networkType: 'testnet', // other option is 'mainnet'
     });
     
-    function lamdenConnect(detail) {
+    var LCW = function lamdenConnect(detail) {
         document.dispatchEvent(new CustomEvent('lamdenWalletConnect', {detail} ));
        // goto('/users/' + user);
         };
@@ -35,7 +35,7 @@
 
 <br><br>
 <!-- <form on:submit|preventDefault={login}> -->
-<form onsubmit="lamdenConnect()">
+<form onsubmit="LCW">
   <!-- <h2>Sign in with your Wallet Address below.</h2> -->
   <!-- <input type="text" bind:value={user} placeholder="Lamden Wallet Address" required="true"/> -->
    <input class="button" type="submit" value="SIGN IN" />
