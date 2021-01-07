@@ -8,6 +8,7 @@
       const data = await res.json();
       if (data.value === 'undefined') this.error(res.status, data.message);
       if (data.value === null) data.value = 0;
+      alert(data);
       return { value: data.value, user: params.user }; // THIS IS URL ISSUE = don't need a get
    }
 
@@ -132,7 +133,7 @@
    p { font-size: 1.2em; }
    .shadowbox { padding: 0.5rem 20px; }
    form{
-      padding: 50px;
+      padding: 5px;
       color: #461BC2;
       display:flex;
       flex-direction: column;
@@ -160,11 +161,11 @@
 </style>
 
 <svelte:head>
-   <title>{user + "'s Tokens"}</title>
+   <title>Tokens</title>
 </svelte:head>
 
-<h1>{"Hello " + user + "!"}</h1>
 <h2>Token Balance: {value}</h2>
+<p><i>Address: {user}</i></p>
 
 <form on:submit|preventDefault={percent_transfer}>
    <h3>Distribute Funds based on percentages (use whole numbers)</h3>
@@ -174,8 +175,8 @@
    <input type="text" name="to" bind:value={receivers} required="true"/>
    <label for="total">Total Token Amount</label>
    <input type="number" name="total" bind:value={amount} required="true"/>
-<!--   <label for="percent">Percentages</label>
-   <input type="text" name="percent" bind:value={percentages} required="true"/> -->
+   <label for="percent">Percentages</label>
+   <input type="text" name="percent" bind:value={percentages} required="true"/>
    <div class="buttons">
         <input class="button" type="submit" value="send"/>
         <button class="button" on:click={logout}>Sign Out</button>

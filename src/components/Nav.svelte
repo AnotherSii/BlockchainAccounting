@@ -12,6 +12,5 @@
 </style>
 
 <nav>
-   <img alt='Token' src='token.png'>
-   <h2>My Token</h2>
+   <img alt='Token' src='purple_circle.png'>
 </nav>
