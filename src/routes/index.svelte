@@ -9,13 +9,12 @@
         logo: 'https://iili.io/K40fKF.png',
         contractName: 'con_apd_v15',
         networkType: 'testnet', // other option is 'mainnet'
-        
-    })
+    });
     
     function lamdenConnect() {
         document.dispatchEvent(new CustomEvent('lamdenWalletConnect', {detail} ));
         goto('/users/' + user);
-        }
+        };
     
     //const login = lamdenConnect() => { goto('/users/' + user); }
 </script>
@@ -44,7 +43,7 @@
 
 <footer>
  <br><br><br>
-   <a href="https://lamden.io"> <img alt='Powered by Lamden' src='lamden-tau-logo.png' style="width:35%; height:35%;"> </a>
+   <a href="https://lamden.io"> <img alt='Powered by Lamden' src='lamden-tau-logo.png' width=10%; height=10%;> </a>
     <h3><i>Powered by Lamden</i></h3>
     <br><br><br>
 </footer>
