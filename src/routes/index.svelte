@@ -1,5 +1,5 @@
 <!-- frontend/src/routes/index.svelte -->
-<script> <!--  type="text/javascript" -->
+<script> //  type="text/javascript"
     import { goto } from '@sapper/app';
     let user = "";
     // const login = () => { goto('/users/' + user); }
@@ -12,11 +12,11 @@
     });
 
     var LC = function lamdenConnect() {
-        document.dispatchEvent(new CustomEvent('lamdenWalletConnect', { detail } ));
+        window.dispatchEvent(new CustomEvent('lamdenWalletConnect', { detail } ));
        // goto('/users/' + user);
         }
     
-    var SignIn = document.getElementById('signin_button');
+    var SignIn = window.getElementById('signin_button');
     
     SignIn.addEventListener('click', LC, false );
     
