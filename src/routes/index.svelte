@@ -11,14 +11,7 @@
         networkType: 'testnet', // other option is 'mainnet'
     });
 
-    var LC = function lamdenConnect() {
-        window.dispatchEvent(new CustomEvent('lamdenWalletConnect', { detail } ));
-       // goto('/users/' + user);
-        }
-    
-    var SignIn = window.getElementById('signin_button');
-    
-    SignIn.addEventListener('click', LC, false );
+
     
    // $('signIn').on('submit', lamdenConnect);
     //const login = lamdenConnect() => { goto('/users/' + user); }
@@ -32,6 +25,17 @@
 
 <svelte:head>
    <title>Blockchain Accounting</title>
+    <script type="text/javascript">
+    
+    var LC = function lamdenConnect() {
+        document.dispatchEvent(new CustomEvent('lamdenWalletConnect', { detail } ));
+       // goto('/users/' + user);
+        }
+    
+    var SignIn = document.getElementById('signin_button');
+    
+    SignIn.addEventListener('click', LC, false );
+    </script>
 </svelte:head>
 
 <h1>Blockchain Accounting</h1>
