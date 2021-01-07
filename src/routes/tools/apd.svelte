@@ -1,7 +1,7 @@
 <script context="module">
-    let contract_url = "https://testnet-master-1.lamden.io/contracts/con_apd_v13/";
+    let contract_url = "https://testnet-master-1.lamden.io/contracts/con_apd_v15/";
    export async function preload({ params, query }) {
-      const res = await this.fetch(contract_url + `State?${params.user}`)
+      const res = await this.fetch(contract_url + `State?key=${params.user}`)
        // const res = await this.fetch(contract_url + `/State?key=${params.user}`) 
       // no need to get the url... should just refresh the page, and with a notification
       const data = await res.json();
@@ -22,18 +22,33 @@
     export let value;
 
     let contract_host = "https://testnet-master-1.lamden.io/";
-    let contract_url = "contracts/con_apd_v13/"; //"https://masternode-01.lamden.io/contracts/con_abuse_6/";
+    let contract_url = "contracts/con_apd_v15/"; //"https://masternode-01.lamden.io/contracts/con_abuse_6/";
     let receivers = "";
     let amount = 0;
     let percentages = "";
     let total = 0;
     let amounts = 0;
+    
+    const txInfo = {
+    networkType: 'testnet', // other option is 'mainnet'
+    methodName: 'do_something', //maybe a variable? percent_transfer or amount_transfer
+    kwargs: {
+        total: 100, 
+        receivers: [ ['address', amount] ], //an Array of Arrays
+    }, 
+    stampLimit: 100
+};
+
+const handleResults = (txResults) => console.log(txResults) // probably delete this
+
+lwc.sendTransaction(transaction, handleResults) // callback is optional - need lwc
       
-      
+
+    // PERCENT TRANSFER FUNCTION \\
    const percent_transfer = async () => { // change it to like percent_transfer & amount_transfer
       const percent_transaction = {
          sender: user,
-         contract: 'apd_v13',
+         contract: 'apd_v15',
          method: 'percent_transfer',
          args: {
             receivers,
@@ -78,10 +93,12 @@
             }
 }      
       
+   
+   // AMOUNT TRANSFER FUNCTION \\
    const amount_transfer = async () => { // change it to like percent_transfer & amount_transfer
       const amount_transaction = {
          sender: user,
-         contract: 'apd_v13',
+         contract: 'apd_v15',
          method: 'amount_transfer',
          args: {
             receivers,
@@ -169,11 +186,13 @@
    
     <!-- make it so a person can add a certain number of investors -->
    <label for="to">Receipients</label>
-   <input type="text" name="to" bind:value={receivers} required="true"/>
+   <textarea name="to" bind:value={receivers} required="true", placeholder="(address, integer)">
+    </textarea>
+<!--   <input type="text" name="to" bind:value={receivers} required="true"/> -->
    <label for="total">Total Amount</label>
    <input type="number" name="total" bind:value={amount} required="true"/>
-   <label for="percent">Percentages</label>
-   <input type="text" name="percent" bind:value={percentages} required="true"/>
+ <!--  <label for="percent">Percentages</label>
+   <input type="text" name="percent" bind:value={percentages} required="true"/> -->
 
 </form>
 
