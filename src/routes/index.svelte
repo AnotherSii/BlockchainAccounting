@@ -10,8 +10,7 @@
         contractName: 'con_apd_v15',
         networkType: 'testnet', // other option is 'mainnet'
     });
-</script>
-<script>
+
     function lamdenConnect() {
         document.dispatchEvent(new CustomEvent('lamdenWalletConnect', {detail} ));
        // goto('/users/' + user);
