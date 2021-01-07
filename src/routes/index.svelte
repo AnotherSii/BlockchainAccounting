@@ -11,11 +11,12 @@
         networkType: 'testnet', // other option is 'mainnet'
     });
     
-    var LCW = function lamdenConnect(detail) {
+    function lamdenConnect() {
         document.dispatchEvent(new CustomEvent('lamdenWalletConnect', {detail} ));
        // goto('/users/' + user);
         };
     
+    $('signIn').on('submit', lamdenConnect);
     //const login = lamdenConnect() => { goto('/users/' + user); }
 </script>
 
@@ -41,9 +42,6 @@
    <input class="button" type="submit" value="SIGN IN" />
 </form>
 
-<script>
-    $('signIn').on('submit', LCW);
-</script>
 
 <footer>
  <br><br><br>
