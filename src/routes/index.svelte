@@ -13,7 +13,7 @@
         networkType: 'testnet', // other option is 'mainnet'
     });
     
-    var LC = function lamdenConnect() { onMount(() => {
+    onMount(() => {
     document.dispatchEvent(new CustomEvent('lamdenWalletConnect', {detail}));
     }); }
 
@@ -23,7 +23,7 @@
     //const login = lamdenConnect() => { goto('/users/' + user); }
 
     
-       // goto('/users/' + user);
+       //var goto('/users/' + user);
     
     var SignIn = document.getElementById('signin_button');
     
@@ -58,7 +58,7 @@
 </form>
 -->
 
-<button class="button" id="signin_button">SIGN IN</button>
+<button class="button" id="apd" href="/users">Payment Distributor</button>
 
 
 <footer>
