@@ -6,7 +6,7 @@
        // const res = await this.fetch(contract_url + `/State?key=${params.user}`) 
       // no need to get the url... should just refresh the page, and with a notification
       const res = await document.dispatchEvent(new CustomEvent('lamdenWalletGetInfo'));
-      const data = await res.json();
+      const data = await res.json(); // 
       alert(data.value, data);
       if (data.value === 'undefined') this.error(res.status, data.message);
       if (data.value === null) data.value = 0;
