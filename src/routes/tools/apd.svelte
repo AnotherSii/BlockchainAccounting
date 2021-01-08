@@ -1,23 +1,45 @@
 <script context="module">
+    import WalletController from 'lamden_wallet_controller';
     let contract_url = "https://testnet-master-1.lamden.io/contracts/con_apd_v15/";
    export async function preload({ params, query }) {
-      const res = await this.fetch(contract_url + `State?key=${params.user}`)
+      //const res = await this.fetch(contract_url + `State?key=${params.user}`)
        // const res = await this.fetch(contract_url + `/State?key=${params.user}`) 
       // no need to get the url... should just refresh the page, and with a notification
+      const res = await document.dispatchEvent(new CustomEvent('lamdenWalletGetInfo'));
       const data = await res.json();
-      alert(data.value);
+      alert(data.value, data);
       if (data.value === 'undefined') this.error(res.status, data.message);
       if (data.value === null) data.value = 0;
       
       return { value: data.value, user: params.user }; // THIS IS URL ISSUE = don't need a get
    }
 
-// probably walletController in the header
 </script>
 
 <script>
     import { goto } from '@sapper/app';
+   // import WalletController from 'lamden_wallet_controller';
+    
+       const connectionRequest = {
+        appName: 'Blockchain Accounting',
+        version: '1.0.0',
+        logo: 'https://iili.io/K40fKF.png',
+        contractName: 'con_apd_v15',
+        networkType: 'testnet', // other option is 'mainnet'
+    };
 
+const handleResults = (txResults) => console.log(txResults) // probably delete this
+const lwc = new WalletController(connectionRequest)
+
+
+
+const handleWalletInfo = (walletInfo) => console.log(walletInfo)
+const handleTxResults = (txInfo) => console.log(txInfo)
+
+
+
+// lwc.sendTransaction(transaction, handleResults) // callback is optional - need lwc
+    
     export let user;
     export let value;
 
@@ -29,37 +51,34 @@
     let total = 0;
     let amounts = 0;
     
-    const txInfo = {
-    networkType: 'testnet', // other option is 'mainnet'
-    methodName: 'do_something', //maybe a variable? percent_transfer or amount_transfer
-    kwargs: {
-        total: 100, 
-        receivers: [ ['address', amount] ], //an Array of Arrays
-    }, 
-    stampLimit: 100
-};
 
-const handleResults = (txResults) => console.log(txResults) // probably delete this
-
-lwc.sendTransaction(transaction, handleResults) // callback is optional - need lwc
-      
 
     // PERCENT TRANSFER FUNCTION \\
    const percent_transfer = async () => { // change it to like percent_transfer & amount_transfer
-      const percent_transaction = {
-         sender: user,
-         contract: 'apd_v15',
-         method: 'percent_transfer',
-         args: {
-            receivers,
-            amount,
-            percentages,
-         }
-      }
+ //     const percent_transaction = {
+ //        sender: user,
+ //        contract: 'apd_v15',
+ //        method: 'percent_transfer',
+ //        args: {
+ //           receivers,
+ //           amount,
+ //           percentages,
+ //        }
+ //     }
+      
+      const txInfo = {
+        networkType: 'testnet', // other option is 'mainnet'
+        methodName: 'percent_transfer', //maybe a variable? percent_transfer or amount_transfer
+        kwargs: {
+            total: amount, 
+            receivers: [ [receivers] ], //an Array of Arrays - needs to get form data
+        }, 
+        stampLimit: 100
+    };
 
 
    const refreshBalance = async () => {
-      const res = await fetch(contract_host + contract_url)//+ "State?key=" + user)
+      const res = await fetch(contract_host + contract_url) //+ "State?key=" + user) - needs to be lwc something
       let data = await res.json();
       value = data.value;
       }
@@ -72,16 +91,16 @@ lwc.sendTransaction(transaction, handleResults) // callback is optional - need l
    
 
 
-      const options = {
-         method: 'POST',
-         headers: {
-            'Content-Type': 'application/json'
-         },
-         body: JSON.stringify(percent_transaction)
-      }
+//      const options = {
+//         method: 'POST',
+//         headers: {
+//            'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(percent_transaction)
+//      }
       
 
-      const res = await fetch(contract_host, options)
+    //  const res = await fetch(contract_host, options)
       
       const data = await res.json();
       if (data.error) {
@@ -186,7 +205,7 @@ lwc.sendTransaction(transaction, handleResults) // callback is optional - need l
    
     <!-- make it so a person can add a certain number of investors -->
    <label for="to">Receipients</label>
-   <textarea name="to" required="true", placeholder="(address, integer)">
+   <textarea name="to" required="true", placeholder="(address, integer)"> <!-- bind:value="{receivers}" -->
     </textarea>
 <!--   <input type="text" name="to" bind:value={receivers} required="true"/> -->
    <label for="total">Total Amount</label>
