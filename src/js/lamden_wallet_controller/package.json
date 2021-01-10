@@ -1,0 +1,58 @@
+{
+  "_from": "lamden_wallet_controller@^0.6.2",
+  "_id": "lamden_wallet_controller@0.6.2",
+  "_inBundle": false,
+  "_integrity": "sha512-n57mhv3/jubS1097W2Z5ctVOwf0OFQpN3wZXa/zYgjCgQ5n9Pp5DOdY2yEf4deVRXi9fJr7O9zgwzkICQJ9Zrw==",
+  "_location": "/lamden_wallet_controller",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "lamden_wallet_controller@^0.6.2",
+    "name": "lamden_wallet_controller",
+    "escapedName": "lamden_wallet_controller",
+    "rawSpec": "^0.6.2",
+    "saveSpec": null,
+    "fetchSpec": "^0.6.2"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/lamden_wallet_controller/-/lamden_wallet_controller-0.6.2.tgz",
+  "_shasum": "be3b3f04cbd236eb9335477eaca0f4651eefe900",
+  "_spec": "lamden_wallet_controller@^0.6.2",
+  "_where": "/home/covenant/Documents/Lamden/BlockchainAccounting",
+  "author": {
+    "name": "Jeff Scott"
+  },
+  "bugs": {
+    "url": "https://github.com/Lamden/lamden_wallet_controller/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {},
+  "deprecated": false,
+  "description": "An ES6 helper Class for handling the Lamden Wallet's broswer event interface.",
+  "devDependencies": {},
+  "directories": {
+    "doc": "docs"
+  },
+  "homepage": "https://github.com/Lamden/lamden_wallet_controller#readme",
+  "keywords": [
+    "blockchain",
+    "lamden",
+    "wallet"
+  ],
+  "license": "ISC",
+  "main": "walletController.js",
+  "name": "lamden_wallet_controller",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lamden/lamden_wallet_controller.git"
+  },
+  "scripts": {
+    "doc": "doxdox 'walletController.js' --layout markdown --output README.md",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.6.2"
+}
