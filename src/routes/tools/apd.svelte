@@ -17,6 +17,9 @@
 </script>
 
 <script>
+    var contract_version = 'con_apd_v15'
+    var network_version = 'testnet' // other option is mainnet
+    
     import { goto } from '@sapper/app';
    // import WalletController from 'lamden_wallet_controller';
     
@@ -24,8 +27,8 @@
         appName: 'Blockchain Accounting',
         version: '1.0.0',
         logo: 'https://iili.io/K40fKF.png',
-        contractName: 'con_apd_v15',
-        networkType: 'testnet', // other option is 'mainnet'
+        contractName: contract_version,
+        networkType: network_version, // other option is 'mainnet'
     };
 
 const handleResults = (txResults) => console.log(txResults) // probably delete this
@@ -36,15 +39,29 @@ const lwc = new WalletController(connectionRequest)
 const handleWalletInfo = (walletInfo) => console.log(walletInfo)
 const handleTxResults = (txInfo) => console.log(txInfo)
 
+// Approval Transaction
 
+const approve_detail = JSON.stringify({ 
+   contractName: 'currency',
+    methodName: 'approve',
+    networkType: network_version, // might only be mainnet
+    kwargs: {
+        amount: 100, // variable
+        to: contract_version,
+        }
+    
+});  // do I need to send tokens to the contract before a user can redistribute the funds?
+    // might need to link this to transfer_from
 
+// document.dispatchEvent(new CustomEvent('lamdenWalletSendTx', {detail}));
 // lwc.sendTransaction(transaction, handleResults) // callback is optional - need lwc
+  
     
     export let user;
     export let value;
 
     let contract_host = "https://testnet-master-1.lamden.io/";
-    let contract_url = "contracts/con_apd_v15/"; //"https://masternode-01.lamden.io/contracts/con_abuse_6/";
+    let contract_url = "contracts/" + contract_version; //"https://masternode-01.lamden.io/contracts/con_abuse_6/";
     let receivers = "";
     let amount = 0;
     let percentages = "";
@@ -57,7 +74,7 @@ const handleTxResults = (txInfo) => console.log(txInfo)
    const percent_transfer = async () => { // change it to like percent_transfer & amount_transfer
  //     const percent_transaction = {
  //        sender: user,
- //        contract: 'apd_v15',
+ //        contract: contract_version,
  //        method: 'percent_transfer',
  //        args: {
  //           receivers,
@@ -67,7 +84,7 @@ const handleTxResults = (txInfo) => console.log(txInfo)
  //     }
       
       const txInfo = {
-        networkType: 'testnet', // other option is 'mainnet'
+        networkType: network_version,
         methodName: 'percent_transfer', //maybe a variable? percent_transfer or amount_transfer
         kwargs: {
             total: amount, 
@@ -117,7 +134,7 @@ const handleTxResults = (txInfo) => console.log(txInfo)
    const amount_transfer = async () => { // change it to like percent_transfer & amount_transfer
       const amount_transaction = {
          sender: user,
-         contract: 'apd_v15',
+         contract: contract_version,
          method: 'amount_transfer',
          args: {
             receivers,
