@@ -1,5 +1,5 @@
 <script context="module">
-    import WalletController from './js/lamden_wallet_controller/walletController.js';
+    import WalletController from '../js/walletController.js';
     let contract_url = "https://testnet-master-1.lamden.io/contracts/con_apd_v15/";
    export async function preload({ params, query }) {
       //const res = await this.fetch(contract_url + `State?key=${params.user}`)

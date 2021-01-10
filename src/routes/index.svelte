@@ -60,7 +60,7 @@
 
 <footer>
  <br><br><br>
-   <a href="https://lamden.io"> <img alt='Powered by Lamden' src='lamden-tau-logo.png' width=10%; height=10%;> </a>
+   <a href="https://lamden.io"> <img alt='Powered by Lamden' src='lamden-tau-logo.png' width=100px; height=100px;> </a>
     <h3><i>Powered by Lamden</i></h3>
     <br><br><br>
 </footer>

@@ -11,8 +11,8 @@
    }
     img {
         margin: 10px;
-        width: 5%;
-        height: 5%;
+        width: 64px;
+        height: 63px;
     }
 </style>
 
